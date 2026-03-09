@@ -146,9 +146,9 @@ prompt-bridge-v2-2.1.0.vsix
 
 └─ extension/
 
-   ├─ extension.js [1.85 KB]
+- ├─ extension.js [1.85 KB]
    
-   ├─ package.json [2.92 KB]
+- ├─ package.json [2.92 KB]
    
    ├─ prompt-bridge-manager-v3.html [13.73 KB]
    

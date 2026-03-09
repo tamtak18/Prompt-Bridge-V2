@@ -137,26 +137,33 @@
 
 
 ---
-### INFO  Files included in the VSIX:
+
+## VSIX パッケージ構成（ver 2.1.0）
+
+`prompt-bridge-v2-2.1.0.vsix` に含まれるファイル構成は以下の通りです．
+
+```text
 prompt-bridge-v2-2.1.0.vsix
+├── [Content_Types].xml
+├── extension.vsixmanifest
+└── extension/
+    ├── extension.js (1.85 KB)
+    ├── package.json (2.92 KB)
+    ├── prompt-bridge-manager-v3.html (13.73 KB)
+    └── OLD/
+        ├── extension.js (1.79 KB)
+        └── package.json (2.92 KB)
 
-├─ [Content_Types].xml
+```
 
-├─ extension.vsixmanifest
+### 主なファイル構成の説明
 
-└─ extension/
-
-- ├─ extension.js [1.85 KB]
-   
-- ├─ package.json [2.92 KB]
-   
-   ├─ prompt-bridge-manager-v3.html [13.73 KB]
-   
-   └─ OLD/
-   
-      ├─ extension.js [1.79 KB]
-      
-      └─ package.json [2.92 KB]
+| ディレクトリ / ファイル名 | 内容・役割 |
+| --- | --- |
+| **extension/** | 拡張機能の本体が格納されるメインディレクトリです． |
+| `extension.js` | VS Code 拡張機能の実行ロジックを記述したメインスクリプトです． |
+| `package.json` | 拡張機能のメタデータ，依存関係，コマンド定義などを管理します． |
+| `prompt-bridge-manager-v3.html` | プロンプト管理インターフェースを提供する HTML ファイルです． |
 
 
 ---

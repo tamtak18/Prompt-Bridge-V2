@@ -1,0 +1,72 @@
+{
+  "name": "prompt-bridge-v2",
+  "displayName": "Prompt Bridge V2",
+  "version": "2.2.0",
+  "publisher": "takasoft",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "prompt-bridge-v2.sendToRoo1",
+        "title": "PB1: コード解説"
+      },
+      {
+        "command": "prompt-bridge-v2.sendToRoo2",
+        "title": "PB2: テスト観点"
+      },
+      {
+        "command": "prompt-bridge-v2.sendToRoo3",
+        "title": "PB3: CDIレビュー"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "prompt-bridge-v2.submenu",
+        "label": "Prompt Bridge"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "prompt-bridge-v2.submenu",
+          "when": "editorHasSelection",
+          "group": "navigation"
+        }
+      ],
+      "prompt-bridge-v2.submenu": [
+        {
+          "command": "prompt-bridge-v2.sendToRoo1",
+          "group": "1_main@1"
+        },
+        {
+          "command": "prompt-bridge-v2.sendToRoo2",
+          "group": "1_main@2"
+        },
+        {
+          "command": "prompt-bridge-v2.sendToRoo3",
+          "group": "1_main@3"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Prompt Bridge V2",
+      "properties": {
+        "promptBridgeV2.customPrompt1": {
+          "type": "string",
+          "default": "以下のソースコードについて，以下の構成で解説してください．\n1. 概要：このコードの主な役割を1行で要約\n2. 処理フロー：ロジックをステップバイステップで論理的に説明\n3. キーポイント：重要な変数や条件分岐，アルゴリズムの意図\n4. 補足：使用されているライブラリや言語特有の記述があれば解説\n\n解析対象のコードは以下の通りです："
+        },
+        "promptBridgeV2.customPrompt2": {
+          "type": "string",
+          "default": "以下のソースコードに対するテスト項目（テスト観点）を，マークダウンの表形式で洗い出してください．\n列項目：[テスト種別(正常/異常/境界値), 確認内容, 期待される結果]\n特に，実行時にエラーが発生しやすい箇所や，考慮漏れが起きそうなコーナーケースを重点的に抽出してください．\n\n解析対象のコードは以下の通りです："
+        },
+        "promptBridgeV2.customPrompt3": {
+          "type": "string",
+          "default": "以下のソースコードを「CDI（信頼性・保守性・効率性）」の観点から厳格にレビューしてください．\n- 改善が必要な箇所の指摘と，その理由（アンチパターン等）\n- リファクタリング後の修正案（具体的なコード例）\n- セキュリティ上の懸念点（もしあれば）\n\n解析対象のコードは以下の通りです："
+        }
+      }
+    }
+  }
+}
